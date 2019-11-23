@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<!-- Bootstrap CSS -->
+	<link href="../static/css/bootstrap.css" rel="stylesheet"
+		th:href="@{/css/bootstrap.css}" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" />
+	
+	<title>Day Calculator Thymeleaf Assignment</title>
+</head>
+<body>
+	<main role="main" class="container">
+		<div class="starter-template">
+			<h1>Day Calculator</h1>
+			<br><br>
+			<form action="#" th:action="@{/calculate}" th:object="${requestObject}" method="post">
+				<table>
+					<tr>
+						<td><label>Start Date:</label></td>
+						<td><input type="date" name="startDate" /></td>
+					</tr>
+					<tr>
+						<td><label>End Date:</label></td>
+						<td><input type="date" name="endDate" /></td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="Confirm" /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</main>
+	<script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+</body>
+</html>

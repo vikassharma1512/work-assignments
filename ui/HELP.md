@@ -1,4 +1,4 @@
-# Date Diffrence UI APP
+# Day calculator spring boot thymeleaf bootstrap application
 
 A) Build a Spring Boot application with Thymeleaf template engine and Bootstrap front-end framework.
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.vik.dto.RequestObject;
+import com.vik.dto.DateForm;
 import com.vik.service.DayCalculatorService;
 
 @Controller
@@ -38,27 +38,27 @@ public class DayCalculatorController {
 	}
 
 	@PostMapping("/calculate")
-	public String resultPage(@ModelAttribute RequestObject requestObject, Model model) {
-		if (requestObject == null || (requestObject.getStartDate().isEmpty() && requestObject.getEndDate().isEmpty())) {
-			model.addAttribute("errorMessage", "request is empty!");
-			return "error";
+	public String resultPage(@ModelAttribute DateForm dateForm, Model model) {
+		if (dateForm == null || (dateForm.getStartDate().isEmpty() && dateForm.getEndDate().isEmpty())) {
+			model.addAttribute("errorMessage", "Date form is empty!");
+			return "home";
 		}
-		if (requestObject.getStartDate().isEmpty()) {
+		if (dateForm.getStartDate().isEmpty()) {
 			model.addAttribute("errorMessage", "Start Date is empty!");
-			return "error";
+			return "home";
 		}
-		if (requestObject.getEndDate().isEmpty()) {
+		if (dateForm.getEndDate().isEmpty()) {
 			model.addAttribute("errorMessage", "End Date is empty!");
-			return "error";
+			return "home";
 		}
 
 		try {
 			SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
-			Date startDate = dateFormatter.parse(requestObject.getStartDate());
-			Date endDate = dateFormatter.parse(requestObject.getEndDate());
+			Date startDate = dateFormatter.parse(dateForm.getStartDate());
+			Date endDate = dateFormatter.parse(dateForm.getEndDate());
 			if (startDate.after(endDate)) {
 				model.addAttribute("errorMessage", errorMessage);
-				return "error";
+				return "home";
 			}
 
 			long days = dayCalculatorService.calculateDays(startDate, endDate);
@@ -67,6 +67,6 @@ public class DayCalculatorController {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		return "result";
+		return "home";
 	}
 }

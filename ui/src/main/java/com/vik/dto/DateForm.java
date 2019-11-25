@@ -1,6 +1,6 @@
 package com.vik.dto;
 
-public class RequestObject {
+public class DateForm {
 	private String startDate;
 	private String endDate;
 

@@ -1,6 +1,6 @@
-package com.vik.app.processor;
+package com.vik.processor;
 
-import com.vik.app.util.CaesarCipher;
+import com.vik.util.CaesarCipher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;

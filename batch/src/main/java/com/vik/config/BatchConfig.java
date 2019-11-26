@@ -1,6 +1,6 @@
-package com.vik.app.config;
+package com.vik.config;
 
-import com.vik.app.processor.EncryptProcessor;
+import com.vik.processor.EncryptProcessor;
 import com.vik.listener.ChunkExecutionListener;
 import com.vik.listener.JobCompletionNotificationListener;
 import com.vik.listener.StepExecutionNotificationListener;
